@@ -1,0 +1,412 @@
+/* Layout & Background Utama */
+.stadium-wrapper {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, #7cd0ff 0%, #a2e0ff 50%, #cbebff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: system-ui, -apple-system, sans-serif;
+  user-select: none;
+}
+
+/* Sun Glow */
+.sun {
+  position: absolute;
+  top: -20px;
+  right: 15%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #fff7a9 20%, rgba(255, 235, 59, 0.6) 50%, rgba(255, 235, 59, 0) 75%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50px;
+  pointer-events: none;
+}
+.cloud-left { top: 20px; left: 8%; width: 90px; height: 35px; }
+.cloud-right { top: 40px; right: 12%; width: 80px; height: 30px; }
+
+/* Header Top */
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  z-index: 10;
+}
+
+.badge-stadium {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #334155;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.main-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-top: 8px;
+  margin-bottom: 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Stage Area (Gawang & Lapangan Box) */
+.stage-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  margin-bottom: 20px; /* Memberi ruang aman agar bola tidak tertutup */
+}
+
+/* Gawang Jaring Biru */
+.goal-frame {
+  position: relative;
+  width: 280px;
+  height: 120px;
+  background-color: #5cb3e8;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 12px 12px;
+  border: 7px solid #ffffff;
+  border-bottom: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Karakter Kiper Vektor */
+.keeper-vector {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 3;
+}
+
+.keeper-center { left: 50%; transform: translateX(-50%); }
+.keeper-left { left: 20%; transform: translateX(-50%) rotate(-15deg); }
+.keeper-right { left: 80%; transform: translateX(-50%) rotate(15deg); }
+
+.keeper-head-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.keeper-glove {
+  width: 18px;
+  height: 18px;
+  background-color: #ff6b35;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+
+.keeper-head {
+  width: 30px;
+  height: 30px;
+  background-color: #ffc107;
+  border: 2px solid #000;
+  border-radius: 50%;
+  margin: 0 2px;
+}
+
+.keeper-body {
+  width: 32px;
+  height: 38px;
+  background-color: #ffca28;
+  border: 2px solid #000;
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: #000;
+}
+
+.keeper-pants {
+  width: 32px;
+  height: 14px;
+  background-color: #e53935;
+  border: 2px solid #000;
+  border-top: none;
+}
+
+.keeper-legs {
+  display: flex;
+  gap: 8px;
+}
+
+.keeper-foot {
+  width: 8px;
+  height: 10px;
+  background-color: #000;
+}
+
+/* Rumput Lapangan Box Atas */
+.pitch-box {
+  position: relative;
+  width: 90%;
+  height: 110px;
+  background: repeating-linear-gradient(
+    0deg,
+    #2ea84f 0px,
+    #2ea84f 24px,
+    #259343 24px,
+    #259343 48px
+  );
+  border-radius: 24px;
+  margin-top: -10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border: 4px solid #1f7a37;
+  z-index: 4;
+}
+
+/* Busur Penalti White Line */
+.penalty-arc {
+  position: absolute;
+  top: 8px;
+  width: 140px;
+  height: 70px;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Bola Sepak SVG */
+.soccer-ball {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 20;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.3));
+}
+
+.ball-spot {
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ball-goal {
+  bottom: 120px;
+  left: 50%;
+  transform: translate(-50%, 0) scale(0.65) rotate(720deg);
+}
+
+.ball-miss {
+  bottom: 160px;
+  left: 88%;
+  transform: translate(-50%, 0) scale(0.4) rotate(900deg);
+}
+
+/* ================= SECTION RUMPUT HIJAU BAWAH ================= */
+.ground-section {
+  width: 100%;
+  background: linear-gradient(180deg, #53c871 0%, #3cae5a 100%);
+  border-radius: 32px 32px 0 0;
+  margin-top: 35px; /* Beri jarak bersih dari titik awal bola */
+  padding: 30px 16px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  z-index: 10;
+  box-shadow: 0 -10px 20px rgba(0,0,0,0.08);
+}
+
+.login-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px 28px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.form-header-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1e293b;
+  text-align: center;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.5px;
+}
+
+.form-header-desc {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-align: center;
+  margin: 0 0 18px 0;
+}
+
+.input-group {
+  margin-bottom: 14px;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.input-field-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 1rem;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  outline: none;
+  color: #334155;
+  box-sizing: border-box;
+  background-color: #f8fafc;
+}
+
+.input-field:focus {
+  border-color: #2ea84f;
+  background-color: #ffffff;
+}
+
+.toggle-password-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+}
+
+.btn-kick {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  background: #2e7d32;
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-kick:hover { background: #1b5e20; }
+.btn-kick:disabled { background: #cbd5e1; cursor: not-allowed; box-shadow: none; }
+
+.btn-reset {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #f1f5f9;
+  color: #475569;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Box Uji Coba Kredensial */
+.credential-box {
+  margin-top: 16px;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.credential-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.credential-values {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.badge-code {
+  background: #dcfce7;
+  color: #166534;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-weight: 700;
+}
+
+/* Footer Text */
+.footer-text {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1b5327;
+  text-align: center;
+}
+
+.notification-banner {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.banner-success { background: #dcfce7; color: #15803d; }
+.banner-error { background: #fee2e2; color: #b91c1c; }
